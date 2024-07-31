@@ -1,7 +1,7 @@
 <diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>580</x><y>250</y><w>200</w><h>130</h></coordinates><panel_attributes>&lt;&lt;Abstract&gt;&gt;
 Memory
 --
-- memory : Array&lt;UByte&gt;(4000)
+# memory : Array&lt;UByte&gt;(4000)
 
 --
 + read()
@@ -21,11 +21,12 @@ style=wordwrap</panel_attributes><additional_attributes></additional_attributes>
 - program_counter : UShort
 - timer : UByte
 - address : UShort
-- memory : UInt</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>580</x><y>530</y><w>200</w><h>90</h></coordinates><panel_attributes>Display
+- memory : UInt</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>580</x><y>530</y><w>200</w><h>110</h></coordinates><panel_attributes>Display
 --
 - displayArray : Array&lt;UByte&gt;(64)
 
 --
++ changeDisplay()
 + print()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>890</x><y>350</y><w>200</w><h>230</h></coordinates><panel_attributes>&lt;&lt;Abstract&gt;&gt;
 Instruction
 --
