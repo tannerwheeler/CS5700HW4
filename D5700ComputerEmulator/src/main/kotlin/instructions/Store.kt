@@ -8,8 +8,4 @@ class Store : Instruction() {
     override fun perform() {
         TODO("Not yet implemented")
     }
-
-    override fun increment() {
-        TODO("Not yet implemented")
-    }
 }

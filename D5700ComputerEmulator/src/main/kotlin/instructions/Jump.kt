@@ -9,7 +9,7 @@ class Jump : Instruction() {
         TODO("Not yet implemented")
     }
 
-    override fun increment() {
-        TODO("Not yet implemented")
+    override fun incrementCheck() : Boolean {
+        return false
     }
 }

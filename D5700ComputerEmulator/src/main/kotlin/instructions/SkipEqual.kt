@@ -6,10 +6,12 @@ class SkipEqual : Instruction() {
     }
 
     override fun perform() {
-        TODO("Not yet implemented")
-    }
+        var areEqual = false
 
-    override fun increment() {
         TODO("Not yet implemented")
+
+        if (areEqual) {
+            increment()
+        }
     }
 }
