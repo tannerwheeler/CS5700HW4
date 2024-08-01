@@ -8,7 +8,7 @@ import instructions.Read
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
-class TestRead {
+class ReadTest {
     val cpu = CPU()
     val array = arrayOf(RAM(), ROM())
     val display = Display()

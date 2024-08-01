@@ -10,7 +10,6 @@ class Read(
     display: Display
 ) : Instruction(cpu, memory, display) {
     override fun split() {
-
         val tempHolder1 = splitByte(byte1)
         mySplit.add(tempHolder1.first)
         mySplit.add(tempHolder1.second)
