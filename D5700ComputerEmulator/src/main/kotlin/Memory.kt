@@ -6,4 +6,5 @@ abstract class Memory {
     }
 
     abstract fun write(position: UInt, value: UByte)
+    abstract fun loadROM()
 }
