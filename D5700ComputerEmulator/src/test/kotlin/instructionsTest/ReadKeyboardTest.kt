@@ -23,4 +23,11 @@ class ReadKeyboardTest {
         assertEquals(true,keyboard.checkHex("AF3"))
         assertEquals(true,keyboard.checkHex("23454367DDDC785DDFFF"))
     }
+
+    @Test
+    fun testKeyboardInput() {
+        keyboard.execute("62".toUByte(16), "00".toUByte(16))
+    }
+
+    //TODO: Add failed tests
 }
