@@ -5,9 +5,9 @@ import Display
 import Memory
 
 abstract class Instruction (
-    val cpu: CPU,
-    val memory: Array<Memory>,
-    val display: Display
+    protected val cpu: CPU,
+    protected val memory: Array<Memory>,
+    protected val display: Display
 ){
     protected var byte1 : UByte = 0u
     protected var byte2 : UByte = 0u
