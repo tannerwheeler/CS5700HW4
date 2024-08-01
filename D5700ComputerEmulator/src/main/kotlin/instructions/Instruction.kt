@@ -10,6 +10,10 @@ abstract class Instruction (
     protected val memory: Array<Memory>,
     protected val display: Display
 ){
+    protected var byte1 : UByte = 0u
+    protected var byte2 : UByte = 0u
+    protected var mySplit : MutableList<UInt> = mutableListOf()
+
     fun checkHex(string: String?): Boolean {
         if (string == null) {
             return true
@@ -24,10 +28,6 @@ abstract class Instruction (
         }
         return true
     }
-
-    protected var byte1 : UByte = 0u
-    protected var byte2 : UByte = 0u
-    protected var mySplit : MutableList<UInt> = mutableListOf()
 
     fun execute(byte1: String, byte2: String) {
         require(checkHex(byte1)) { "Error in Execute: Byte 1 must be a hex string." }
@@ -51,15 +51,15 @@ abstract class Instruction (
         cpu.program_counter = (cpu.program_counter + 2u).toUShort()
     }
 
-    open fun incrementCheck() : Boolean {
-        return true
-    }
-
     protected fun splitByte(byte: UByte) : Pair<UInt,UInt> {
         var first : UInt = byte.toUInt()
         var second : UInt = byte.toUInt()
         first = first shr 4
         second = second and 15u
         return Pair(first, second)
+    }
+
+    open fun incrementCheck() : Boolean {
+        return true
     }
 }
