@@ -11,21 +11,6 @@ class ReadKeyboard(
     display: Display
 ) : Instruction(cpu, memory, display) {
 
-    public fun checkHex(string: String?): Boolean {
-        if (string == null) {
-            return true
-        }
-
-        val uppercaseString = string.uppercase(Locale.getDefault())
-        uppercaseString.forEach {
-            if ((it < '0' || it > '9')
-                && (it < 'A' || it > 'F')) {
-                return false
-            }
-        }
-        return true
-    }
-
     override fun split() {
         val tempHolder1 = splitByte(byte1)
         mySplit.add(tempHolder1.first)
