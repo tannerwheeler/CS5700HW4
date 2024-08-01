@@ -18,7 +18,7 @@ class ReadTest {
     fun testReadBasic() {
         cpu.address = 30u
         cpu.memory = 0u
-        array[0].write(cpu.address.toInt(), 10)
+        array[0].write(cpu.address.toInt(), 10u)
         read.execute("37", "00")
         assertEquals(10, cpu.registers[7])
     }
@@ -27,7 +27,7 @@ class ReadTest {
     fun testReadROM() {
         cpu.address = 30u
         cpu.memory = 1u
-        array[0].write(cpu.address.toInt(), 10)
+        array[0].write(cpu.address.toInt(), 10u)
         read.execute("37", "00")
         assertEquals(0, cpu.registers[7])
     }

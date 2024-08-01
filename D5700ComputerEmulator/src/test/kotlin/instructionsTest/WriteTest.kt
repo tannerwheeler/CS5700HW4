@@ -18,16 +18,16 @@ class WriteTest {
     fun testWriteRAM() {
         cpu.address = 30u
         cpu.memory = 0u
-        cpu.registers[7] = 10
+        cpu.registers[7] = 10u
         write.execute("47", "00")
-        assertEquals(10, array[0].read(cpu.address.toInt()))
+        assertEquals(10u, array[0].read(cpu.address.toInt()))
     }
 
     @Test
     fun testWriteROM() {
         cpu.address = 30u
         cpu.memory = 1u
-        cpu.registers[7] = 10
+        cpu.registers[7] = 10u
         write.execute("47", "00")
         assertEquals(0, array[0].read(cpu.address.toInt()))
     }

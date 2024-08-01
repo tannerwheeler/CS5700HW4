@@ -24,10 +24,10 @@ class ReadKeyboard(
         val input = readlnOrNull()
         if (checkHex(input)) {
             if (input == null) {
-                cpu.registers[mySplit[1].toInt()] = 0
+                cpu.registers[mySplit[1].toInt()] = 0u
             } else {
                 val chunkedInput = input.chunked(2)
-                cpu.registers[mySplit[1].toInt()] = chunkedInput[0].toByte(16)
+                cpu.registers[mySplit[1].toInt()] = chunkedInput[0].toUByte(16)
             }
         }
         return

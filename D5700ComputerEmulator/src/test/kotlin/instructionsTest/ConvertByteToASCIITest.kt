@@ -17,28 +17,28 @@ class ConvertByteToASCIITest {
 
     @Test
     fun testConvertByteToASCII() {
-        cpu.registers[0] = 12
+        cpu.registers[0] = 12u
         convertByteToASCII.execute("E0","10")
-        assertEquals(12,cpu.registers[1])
+        assertEquals(12u,cpu.registers[1])
     }
 
     @Test
     fun testBadConvertByteToASCII() {
-        cpu.registers[0] = 17
+        cpu.registers[0] = 17u
         val block: () -> Unit = { convertByteToASCII.execute("E0", "10") }
         assertFailsWith<IllegalStateException> { block() }
     }
 
     @Test
     fun testBadConvertByteToASCII2() {
-        cpu.registers[0] = 12
+        cpu.registers[0] = 12u
         val block: () -> Unit = { convertByteToASCII.execute("D0", "10") }
         assertFailsWith<IllegalArgumentException> { block() }
     }
 
     @Test
     fun testBadConvertByteToASCII3() {
-        cpu.registers[0] = 12
+        cpu.registers[0] = 12u
         val block: () -> Unit = { convertByteToASCII.execute("E0", "11") }
         assertFailsWith<IllegalArgumentException> { block() }
     }

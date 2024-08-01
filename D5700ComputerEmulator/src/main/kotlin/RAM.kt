@@ -1,5 +1,5 @@
 class RAM : Memory() {
-    override fun write(position: Int, value: Byte) {
+    override fun write(position: Int, value: UByte) {
         this.data[position] = value
     }
 

@@ -19,6 +19,6 @@ class ReadT(
 
     override fun perform() {
         require(mySplit[0] == 12u) { "First 4 bits of first byte must be C in ReadT Instruction" }
-        cpu.registers[mySplit[1].toInt()] = cpu.timer.toByte()
+        cpu.registers[mySplit[1].toInt()] = cpu.timer.toUByte()
     }
 }

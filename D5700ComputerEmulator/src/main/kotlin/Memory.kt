@@ -1,10 +1,10 @@
 abstract class Memory {
-    protected val data = Array<Byte>(4000) { 0 }
+    protected val data = Array<UByte>(4000) { 0u }
 
-    fun read(position: Int): Byte {
+    fun read(position: Int): UByte {
         return this.data[position]
     }
 
-    abstract fun write(position: Int, value: Byte)
+    abstract fun write(position: Int, value: UByte)
     abstract fun loadROM()
 }

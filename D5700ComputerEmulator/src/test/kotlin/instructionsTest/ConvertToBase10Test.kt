@@ -17,11 +17,11 @@ class ConvertToBase10Test {
 
     @Test
     fun testConvertToBase10() {
-        cpu.registers[2] = 123
+        cpu.registers[2] = 123u
         convertToBase10.execute("D2","00")
-        assertEquals(1, array[0].read(cpu.address.toInt()))
-        assertEquals(2, array[0].read(cpu.address.toInt()+1))
-        assertEquals(3, array[0].read(cpu.address.toInt()+2))
+        assertEquals(1u, array[0].read(cpu.address.toInt()))
+        assertEquals(2u, array[0].read(cpu.address.toInt()+1))
+        assertEquals(3u, array[0].read(cpu.address.toInt()+2))
     }
 
     @Test

@@ -20,10 +20,10 @@ class ConvertToBase10(
     override fun perform() {
         require(mySplit[0] == 13u) { "First 4 bits of first byte must be D in ConvertToBase10 Instruction" }
         var needsConversion : Int = cpu.registers[mySplit[1].toInt()].toInt()
-        memory[cpu.memory.toInt()].write(cpu.address.toInt() + 2, (needsConversion % 10).toByte())
+        memory[cpu.memory.toInt()].write(cpu.address.toInt() + 2, (needsConversion % 10).toUByte())
         needsConversion /= 10
-        memory[cpu.memory.toInt()].write(cpu.address.toInt() + 1, (needsConversion % 10).toByte())
+        memory[cpu.memory.toInt()].write(cpu.address.toInt() + 1, (needsConversion % 10).toUByte())
         needsConversion /= 10
-        memory[cpu.memory.toInt()].write(cpu.address.toInt(), (needsConversion % 10).toByte())
+        memory[cpu.memory.toInt()].write(cpu.address.toInt(), (needsConversion % 10).toUByte())
     }
 }

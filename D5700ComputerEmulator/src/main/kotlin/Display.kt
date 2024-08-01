@@ -1,23 +1,26 @@
 class Display {
-    private val displayArray = Array(8) { Array<UByte?>(8) { null } }
+    private val displayArray = Array(8) { Array<String?>(8) { null } }
 
-    fun changeDisplay() {
+    fun changeDisplay(value: String, row: Int, column: Int) {
+        displayArray[row][column] = value
+    }
 
+    fun checkDisplay(row: Int, column: Int) : String {
+        return displayArray[row][column]?.toString() ?: ""
     }
 
     fun print() {
-        //TODO: Possible problem here
-        println("--------")
-        displayArray.forEach {
-            it.forEach {
+        println("        ")
+        for (row in displayArray) {
+            row.forEach {
                 if (it != null) {
                     print(it)
                 } else {
-                    print(0)
+                    print("-")
                 }
             }
             println("")
         }
-        println("--------")
+        println("        ")
     }
 }
