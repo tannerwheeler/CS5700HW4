@@ -5,8 +5,8 @@ class Display {
         displayArray[row][column] = value
     }
 
-    fun checkDisplay(row: Int, column: Int) : String {
-        return displayArray[row][column]?.toString() ?: ""
+    fun checkDisplay(row: Int, column: Int) : String? {
+        return displayArray[row][column]
     }
 
     fun print() {

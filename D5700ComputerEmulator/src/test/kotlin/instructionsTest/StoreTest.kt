@@ -17,6 +17,6 @@ class StoreTest {
         val display = Display()
         val store = Store(cpu, array, display)
         store.execute("00", "ff")
-        assertEquals(1u, cpu.registers[0])
+        assertEquals(255.toUByte(), cpu.registers[0])
     }
 }

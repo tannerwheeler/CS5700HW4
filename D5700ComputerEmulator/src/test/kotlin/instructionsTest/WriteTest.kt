@@ -20,7 +20,7 @@ class WriteTest {
         cpu.memory = 0u
         cpu.registers[7] = 10u
         write.execute("47", "00")
-        assertEquals(10u, array[0].read(cpu.address.toInt()))
+        assertEquals(10.toUByte(), array[cpu.memory.toInt()].read(cpu.address.toInt()))
     }
 
     @Test
@@ -29,6 +29,6 @@ class WriteTest {
         cpu.memory = 1u
         cpu.registers[7] = 10u
         write.execute("47", "00")
-        assertEquals(0, array[0].read(cpu.address.toInt()))
+        assertEquals(0.toUByte(), array[cpu.memory.toInt()].read(cpu.address.toInt()))
     }
 }

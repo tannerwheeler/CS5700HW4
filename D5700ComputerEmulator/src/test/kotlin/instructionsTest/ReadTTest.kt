@@ -18,9 +18,9 @@ class ReadTTest {
     @Test
     fun testReadT() {
         cpu.timer = 40u
-        assertEquals(0, cpu.registers[0])
+        assertEquals(0.toUByte(), cpu.registers[0])
         readT.execute("C0","00")
-        assertEquals(40, cpu.registers[0])
+        assertEquals(40.toUByte(), cpu.registers[0])
     }
 
     @Test

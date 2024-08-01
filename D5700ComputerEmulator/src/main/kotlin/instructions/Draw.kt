@@ -35,6 +35,5 @@ class Draw(
             display.changeDisplay(value,
                 mySplit[2].toInt(), mySplit[3].toInt())
         }
-
     }
 }
