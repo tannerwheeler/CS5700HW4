@@ -20,7 +20,7 @@ class Sub(
     }
 
     override fun perform() {
-        require(mySplit[0] == 2u)
+        require(mySplit[0] == 2u) { "First 4 bits of first byte must be 2 for Sub Instruction." }
         val newValue = cpu.registers[mySplit[1].toInt()] - cpu.registers[mySplit[2].toInt()]
         cpu.registers[mySplit[3].toInt()] = newValue.toByte()
         mySplit.clear()
