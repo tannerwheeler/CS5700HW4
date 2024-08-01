@@ -10,10 +10,14 @@ class Store(
     display: Display
 ) : Instruction(cpu, memory, display) {
     override fun split() {
-        TODO("Not yet implemented")
+        val tempHolder = splitByte(byte1)
+        mySplit.add(tempHolder.first)
+        mySplit.add(tempHolder.second)
+        mySplit.add(byte2.toUInt())
     }
 
     override fun perform() {
-        TODO("Not yet implemented")
+        cpu.registers[mySplit[1].toInt()] = mySplit[2].toUByte()
+        mySplit.clear()
     }
 }

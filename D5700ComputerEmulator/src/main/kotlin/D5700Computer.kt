@@ -21,8 +21,4 @@ class D5700Computer {
         ConvertByteToASCII(this.cpu, this.memories, this.display),
         Draw(this.cpu, this.memories, this.display)
     )
-
-    fun start() {
-        memories[1].loadROM()
-    }
 }

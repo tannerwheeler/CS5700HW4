@@ -1,5 +1,5 @@
 class CPU {
-    val registers = Array<UByte?>(8) { null }
+    val registers = Array<UByte>(8) { 0u }
     var program_counter : UShort = 0u
     var timer : UByte = 0u
     var address : UShort = 0u

@@ -1,3 +1,6 @@
+import instructions.Store
+
 fun main() {
-    D5700Computer().start()
+    //D5700Computer()
+
 }
