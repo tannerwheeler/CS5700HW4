@@ -13,8 +13,7 @@ class SetA(
         val tempHolder1 = splitByte(byte1)
         mySplit.add(tempHolder1.first)
 
-        var secondHalf = tempHolder1.second
-        secondHalf = secondHalf shl 8
+        val secondHalf = tempHolder1.second shl 8
         mySplit.add(secondHalf or byte2.toUInt())
     }
 
