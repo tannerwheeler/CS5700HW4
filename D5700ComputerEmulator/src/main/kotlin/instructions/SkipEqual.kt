@@ -10,14 +10,20 @@ class SkipEqual(
     display: Display
 ) : Instruction(cpu, memory, display) {
     override fun split() {
-        TODO("Not yet implemented")
+        val tempHolder1 = splitByte(byte1)
+        mySplit.add(tempHolder1.first)
+        mySplit.add(tempHolder1.second)
+
+        val tempHolder2 = splitByte(byte2)
+        mySplit.add(tempHolder2.first)
+        require(tempHolder2.second == 0u) { "The last 4 bits must be 0" }
     }
 
     override fun perform() {
         var areEqual = false
 
-        TODO("Not yet implemented")
-
+        require(mySplit[0] == 8u) { "First 4 bits of first byte must be 8 in SkipEqual Instruction" }
+        areEqual = cpu.registers[mySplit[1].toInt()] == cpu.registers[mySplit[2].toInt()]
         if (areEqual) {
             increment()
         }
