@@ -17,7 +17,7 @@ class Store(
     }
 
     override fun perform() {
-        cpu.registers[mySplit[1].toInt()] = mySplit[2].toUByte()
+        cpu.registers[mySplit[1].toInt()] = mySplit[2].toByte()
         mySplit.clear()
     }
 }
