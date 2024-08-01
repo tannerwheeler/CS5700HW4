@@ -10,11 +10,17 @@ class Jump(
     display: Display
 ) : Instruction(cpu, memory, display) {
     override fun split() {
-        TODO("Not yet implemented")
+        val tempHolder1 = splitByte(byte1)
+        mySplit.add(tempHolder1.first)
+
+        var secondHalf = tempHolder1.second
+        secondHalf = secondHalf shl 8
+        mySplit.add(secondHalf or byte2.toUInt())
     }
 
     override fun perform() {
-        TODO("Not yet implemented")
+        require(mySplit[0] == 5u) { "First 4 bits of the first byte must be 5" }
+        cpu.program_counter = mySplit[1].toUShort()
     }
 
     override fun incrementCheck() : Boolean {

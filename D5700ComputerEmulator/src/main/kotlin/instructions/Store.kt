@@ -19,6 +19,5 @@ class Store(
     override fun perform() {
         require(mySplit[0] == 0u) { "First 4 bits of first byte must be 0 for Store Instruction." }
         cpu.registers[mySplit[1].toInt()] = mySplit[2].toByte()
-        mySplit.clear()
     }
 }

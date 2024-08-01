@@ -21,6 +21,5 @@ class Read(
         require(mySplit[0] == 3u) { "First 4 bits of first byte must be 3 for Read Instruction." }
         cpu.registers[mySplit[1].toInt()] =
             memory[cpu.memory.toInt()].read(cpu.address.toInt())
-        mySplit.clear()
     }
 }

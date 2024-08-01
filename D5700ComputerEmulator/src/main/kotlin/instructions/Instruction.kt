@@ -21,12 +21,13 @@ abstract class Instruction (
         if (incrementCheck()) {
             increment()
         }
+        mySplit.clear()
     }
 
     protected abstract fun split()
     protected abstract fun perform()
     protected fun increment() {
-
+        cpu.program_counter = (cpu.program_counter + 2u).toUShort()
     }
 
     open fun incrementCheck() : Boolean {

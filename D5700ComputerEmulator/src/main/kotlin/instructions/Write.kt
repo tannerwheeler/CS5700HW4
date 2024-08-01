@@ -20,6 +20,5 @@ class Write(
     override fun perform() {
         require(mySplit[0] == 4u) { "First 4 bits of first byte must be 4" }
         memory[cpu.memory.toInt()].write(cpu.address.toInt(), cpu.registers[mySplit[1].toInt()])
-        mySplit.clear()
     }
 }

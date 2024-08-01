@@ -23,6 +23,5 @@ class Add(
         require(mySplit[0] == 1u) { "First 4 bits of first byte must be 1 for Add Instruction." }
         val newValue = cpu.registers[mySplit[1].toInt()] + cpu.registers[mySplit[2].toInt()]
         cpu.registers[mySplit[3].toInt()] = newValue.toByte()
-        mySplit.clear()
     }
 }
