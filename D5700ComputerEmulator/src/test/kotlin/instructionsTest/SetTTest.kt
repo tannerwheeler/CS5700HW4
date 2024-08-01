@@ -19,7 +19,7 @@ class SetTTest {
     fun testSetT() {
         assertEquals(0u, cpu.timer)
         setT.execute("B0","A0")
-        assertEquals(27u, cpu.timer)
+        assertEquals(10u, cpu.timer)
     }
 
     @Test

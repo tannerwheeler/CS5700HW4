@@ -16,7 +16,7 @@ class SkipEqual(
 
         val tempHolder2 = splitByte(byte2)
         mySplit.add(tempHolder2.first)
-        require(tempHolder2.second == 0u) { "The last 4 bits must be 0" }
+        require(tempHolder2.second == 0u) { "The last 4 bits must be 0 in SkipEqual Instruction." }
     }
 
     override fun perform() {
