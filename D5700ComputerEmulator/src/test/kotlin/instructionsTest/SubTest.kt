@@ -18,7 +18,7 @@ class SubTest {
         val array = arrayOf(RAM(), ROM())
         val display = Display()
         val sub = Sub(cpu, array, display)
-        sub.execute("20".toUByte(16), "10".toUByte(16))
+        sub.execute("20", "10")
         assertEquals(1, cpu.registers[0])
     }
 
@@ -31,7 +31,7 @@ class SubTest {
         val array = arrayOf(RAM(), ROM())
         val display = Display()
         val sub = Sub(cpu, array, display)
-        sub.execute("20".toUByte(16), "10".toUByte(16))
+        sub.execute("20", "10")
         assertEquals(-1, cpu.registers[0])
     }
 
@@ -44,7 +44,7 @@ class SubTest {
         val array = arrayOf(RAM(), ROM())
         val display = Display()
         val sub = Sub(cpu, array, display)
-        sub.execute("27".toUByte(16), "10".toUByte(16))
+        sub.execute("27", "10")
         assertEquals(-3, cpu.registers[0])
     }
 
@@ -58,7 +58,7 @@ class SubTest {
         val array = arrayOf(RAM(), ROM())
         val display = Display()
         val sub = Sub(cpu, array, display)
-        sub.execute("27".toUByte(16), "10".toUByte(16))
+        sub.execute("27", "10")
         assertEquals(20, cpu.registers[0])
     }
 
@@ -72,7 +72,7 @@ class SubTest {
         val array = arrayOf(RAM(), ROM())
         val display = Display()
         val sub = Sub(cpu, array, display)
-        sub.execute("27".toUByte(16), "10".toUByte(16))
+        sub.execute("27", "10")
         assertEquals(20, cpu.registers[0])
     }
 }

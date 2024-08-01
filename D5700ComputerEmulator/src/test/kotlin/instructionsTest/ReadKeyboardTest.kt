@@ -26,7 +26,7 @@ class ReadKeyboardTest {
 
     @Test
     fun testKeyboardInput() {
-        keyboard.execute("62".toUByte(16), "00".toUByte(16))
+        keyboard.execute("62", "00")
     }
 
     //TODO: Add failed tests

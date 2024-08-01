@@ -18,7 +18,7 @@ class AddTest {
         val array = arrayOf(RAM(), ROM())
         val display = Display()
         val add = Add(cpu, array, display)
-        add.execute("10".toUByte(16), "10".toUByte(16))
+        add.execute("10", "10")
         assertEquals(5, cpu.registers[0])
     }
 
@@ -31,7 +31,7 @@ class AddTest {
         val array = arrayOf(RAM(), ROM())
         val display = Display()
         val add = Add(cpu, array, display)
-        add.execute("10".toUByte(16), "10".toUByte(16))
+        add.execute("10", "10")
         assertEquals(1, cpu.registers[0])
     }
 
@@ -44,7 +44,7 @@ class AddTest {
         val array = arrayOf(RAM(), ROM())
         val display = Display()
         val add = Add(cpu, array, display)
-        add.execute("17".toUByte(16), "10".toUByte(16))
+        add.execute("17", "10")
         assertEquals(3, cpu.registers[0])
     }
 
@@ -58,7 +58,7 @@ class AddTest {
         val array = arrayOf(RAM(), ROM())
         val display = Display()
         val add = Add(cpu, array, display)
-        add.execute("17".toUByte(16), "10".toUByte(16))
+        add.execute("17", "10")
         assertEquals(20, cpu.registers[0])
     }
 
@@ -72,7 +72,7 @@ class AddTest {
         val array = arrayOf(RAM(), ROM())
         val display = Display()
         val add = Add(cpu, array, display)
-        add.execute("17".toUByte(16), "10".toUByte(16))
+        add.execute("17", "10")
         assertEquals(20, cpu.registers[0])
     }
 }

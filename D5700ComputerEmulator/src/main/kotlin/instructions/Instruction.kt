@@ -13,9 +13,9 @@ abstract class Instruction (
     protected var byte2 : UByte = 0u
     protected var mySplit : MutableList<UInt> = mutableListOf()
 
-    fun execute(byte1: UByte, byte2: UByte) {
-        this.byte1 = byte1
-        this.byte2 = byte2
+    fun execute(byte1: String, byte2: String) {
+        this.byte1 = byte1.toUByte(16)
+        this.byte2 = byte2.toUByte(16)
         split()
         perform()
         if (incrementCheck()) {

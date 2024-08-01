@@ -19,7 +19,7 @@ class Jump(
     }
 
     override fun perform() {
-        require(mySplit[0] == 5u) { "First 4 bits of the first byte must be 5" }
+        require(mySplit[0] == 5u) { "First 4 bits of the first byte must be 5 in Jump Instruction" }
         cpu.program_counter = mySplit[1].toUShort()
     }
 

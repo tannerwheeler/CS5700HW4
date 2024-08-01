@@ -19,9 +19,9 @@ class JumpTest {
     @Test
     fun jumpTestBasic() {
         assertEquals(0u, cpu.program_counter)
-        add.execute("10".toUByte(16),"10".toUByte(16))
+        add.execute("10","10")
         assertEquals(2u, cpu.program_counter)
-        jump.execute("51".toUByte(16),"f2".toUByte(16))
+        jump.execute("51","f2")
         assertEquals(498u, cpu.program_counter)
     }
 }

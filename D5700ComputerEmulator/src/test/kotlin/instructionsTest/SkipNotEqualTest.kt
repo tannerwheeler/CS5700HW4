@@ -20,22 +20,22 @@ class SkipNotEqualTest {
         assertEquals(0u, cpu.program_counter)
         cpu.registers[1] = 10
         cpu.registers[2] = 20
-        skipNotEqual.execute("91".toUByte(16), "20".toUByte(16))
+        skipNotEqual.execute("91", "20")
         assertEquals(4u, cpu.program_counter)
         cpu.registers[1] = 20
-        skipNotEqual.execute("91".toUByte(16), "20".toUByte(16))
+        skipNotEqual.execute("91", "20")
         assertEquals(6u, cpu.program_counter)
     }
 
     @Test
     fun testBadSkipEqualTest() {
-        val block: () -> Unit = { skipNotEqual.execute("90".toUByte(16), "01".toUByte(16)) }
+        val block: () -> Unit = { skipNotEqual.execute("90", "01") }
         assertFailsWith<IllegalArgumentException> { block() }
     }
 
     @Test
     fun testBadSkipEqual2Test() {
-        val block: () -> Unit = { skipNotEqual.execute("70".toUByte(16), "10".toUByte(16)) }
+        val block: () -> Unit = { skipNotEqual.execute("70", "10") }
         assertFailsWith<IllegalArgumentException> { block() }
     }
 }

@@ -19,7 +19,7 @@ class ReadTest {
         cpu.address = 30u
         cpu.memory = 0u
         array[0].write(cpu.address.toInt(), 10)
-        read.execute("37".toUByte(16), "00".toUByte(16))
+        read.execute("37", "00")
         assertEquals(10, cpu.registers[7])
     }
 
@@ -28,7 +28,7 @@ class ReadTest {
         cpu.address = 30u
         cpu.memory = 1u
         array[0].write(cpu.address.toInt(), 10)
-        read.execute("37".toUByte(16), "00".toUByte(16))
+        read.execute("37", "00")
         assertEquals(0, cpu.registers[7])
     }
 }

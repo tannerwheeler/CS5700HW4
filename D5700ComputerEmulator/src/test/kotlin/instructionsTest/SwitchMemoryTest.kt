@@ -18,27 +18,27 @@ class SwitchMemoryTest {
     @Test
     fun testSwitchMemoryBasic() {
         assertEquals(0u, cpu.memory)
-        switchMemory.execute("70".toUByte(16), "00".toUByte(16))
+        switchMemory.execute("70", "00")
         assertEquals(1u, cpu.memory)
-        switchMemory.execute("70".toUByte(16), "00".toUByte(16))
+        switchMemory.execute("70", "00")
         assertEquals(0u, cpu.memory)
     }
 
     @Test
     fun testBadSwitchMemory1() {
-        val block: () -> Unit = { switchMemory.execute("71".toUByte(16), "00".toUByte(16)) }
+        val block: () -> Unit = { switchMemory.execute("71", "00") }
         assertFailsWith<IllegalArgumentException> { block() }
     }
 
     @Test
     fun testBadSwitchMemory2() {
-        val block: () -> Unit = { switchMemory.execute("70".toUByte(16), "10".toUByte(16)) }
+        val block: () -> Unit = { switchMemory.execute("70", "10") }
         assertFailsWith<IllegalArgumentException> { block() }
     }
 
     @Test
     fun testBadSwitchMemory3() {
-        val block: () -> Unit = { switchMemory.execute("70".toUByte(16), "01".toUByte(16)) }
+        val block: () -> Unit = { switchMemory.execute("70", "01") }
         assertFailsWith<IllegalArgumentException> { block() }
     }
 }
