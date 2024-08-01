@@ -4,48 +4,48 @@ import CPU
 import Display
 import RAM
 import ROM
+import instructions.Sub
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
-import instructions.Add
 
-class AddTest {
+class SubTest {
     @Test
-    fun testAddBasic() {
+    fun testSubBasic() {
         val cpu = CPU()
-        cpu.registers[0] = 2
-        cpu.registers[1] = 3
-        assertEquals(2, cpu.registers[0])
+        cpu.registers[0] = 3
+        cpu.registers[1] = 2
+        assertEquals(3, cpu.registers[0])
         val array = arrayOf(RAM(), ROM())
         val display = Display()
-        val add = Add(cpu, array, display)
-        add.execute("10".toUByte(16), "10".toUByte(16))
-        assertEquals(5, cpu.registers[0])
-    }
-
-    @Test
-    fun testAddWithNegatives() {
-        val cpu = CPU()
-        cpu.registers[0] = -2
-        cpu.registers[1] = 3
-        assertEquals(-2, cpu.registers[0])
-        val array = arrayOf(RAM(), ROM())
-        val display = Display()
-        val add = Add(cpu, array, display)
-        add.execute("10".toUByte(16), "10".toUByte(16))
+        val sub = Sub(cpu, array, display)
+        sub.execute("20".toUByte(16), "10".toUByte(16))
         assertEquals(1, cpu.registers[0])
     }
 
     @Test
-    fun testAddWithThreeRegisters() {
+    fun testSubWithNegatives() {
         val cpu = CPU()
         cpu.registers[0] = 2
         cpu.registers[1] = 3
         assertEquals(2, cpu.registers[0])
         val array = arrayOf(RAM(), ROM())
         val display = Display()
-        val add = Add(cpu, array, display)
-        add.execute("17".toUByte(16), "10".toUByte(16))
-        assertEquals(3, cpu.registers[0])
+        val sub = Sub(cpu, array, display)
+        sub.execute("20".toUByte(16), "10".toUByte(16))
+        assertEquals(-1, cpu.registers[0])
+    }
+
+    @Test
+    fun testSubWithThreeRegisters() {
+        val cpu = CPU()
+        cpu.registers[0] = 2
+        cpu.registers[1] = 3
+        assertEquals(2, cpu.registers[0])
+        val array = arrayOf(RAM(), ROM())
+        val display = Display()
+        val sub = Sub(cpu, array, display)
+        sub.execute("27".toUByte(16), "10".toUByte(16))
+        assertEquals(-3, cpu.registers[0])
     }
 
     @Test
@@ -57,8 +57,8 @@ class AddTest {
         assertEquals(2, cpu.registers[0])
         val array = arrayOf(RAM(), ROM())
         val display = Display()
-        val add = Add(cpu, array, display)
-        add.execute("17".toUByte(16), "10".toUByte(16))
+        val sub = Sub(cpu, array, display)
+        sub.execute("27".toUByte(16), "10".toUByte(16))
         assertEquals(20, cpu.registers[0])
     }
 
@@ -71,8 +71,8 @@ class AddTest {
         assertEquals(2, cpu.registers[0])
         val array = arrayOf(RAM(), ROM())
         val display = Display()
-        val add = Add(cpu, array, display)
-        add.execute("17".toUByte(16), "10".toUByte(16))
+        val sub = Sub(cpu, array, display)
+        sub.execute("27".toUByte(16), "10".toUByte(16))
         assertEquals(20, cpu.registers[0])
     }
 }

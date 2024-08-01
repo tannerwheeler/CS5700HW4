@@ -10,10 +10,19 @@ class Sub(
     display: Display
 ) : Instruction(cpu, memory, display) {
     override fun split() {
-        TODO("Not yet implemented")
+        val tempHolder1 = splitByte(byte1)
+        mySplit.add(tempHolder1.first)
+        mySplit.add(tempHolder1.second)
+
+        val tempHolder2 = splitByte(byte2)
+        mySplit.add(tempHolder2.first)
+        mySplit.add(tempHolder2.second)
     }
 
     override fun perform() {
-        TODO("Not yet implemented")
+        require(mySplit[0] == 2u)
+        val newValue = cpu.registers[mySplit[1].toInt()] - cpu.registers[mySplit[2].toInt()]
+        cpu.registers[mySplit[3].toInt()] = newValue.toByte()
+        mySplit.clear()
     }
 }

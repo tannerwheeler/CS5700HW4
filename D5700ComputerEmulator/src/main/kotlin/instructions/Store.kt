@@ -17,6 +17,7 @@ class Store(
     }
 
     override fun perform() {
+        require(mySplit[0] == 0u)
         cpu.registers[mySplit[1].toInt()] = mySplit[2].toByte()
         mySplit.clear()
     }
