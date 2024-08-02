@@ -11,17 +11,18 @@ class Display {
     }
 
     fun printToConsole() {
-        println("        ")
+        println("|--------|")
         for (row in displayArray) {
+            print("|")
             row.forEach {
                 if (it != null) {
                     print(it)
                 } else {
-                    print("-")
+                    print(" ")
                 }
             }
-            println("")
+            println("|")
         }
-        println("        ")
+        println("|--------|")
     }
 }
