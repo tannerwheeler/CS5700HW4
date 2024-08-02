@@ -22,12 +22,12 @@ class ConvertByteToASCII(
 
     override fun perform() {
         require(mySplit[0] == 14u) { "First 4 bits of first byte must be E in ConvertByteToASCII Instruction" }
-        val wantedValue = cpu.registers[mySplit[1].toInt()]
+        val wantedValue = cpu.registers[mySplit[1].toInt()].toInt().digitToChar().code.toByte().toUByte()
 
-        if (wantedValue in 0u..15u) {
+        if (wantedValue in 0u..127u) {
             cpu.registers[mySplit[2].toInt()] = wantedValue
         } else {
-            error("The value stored in register ${mySplit[1].toInt()} is not base-16")
+            throw error("The value stored in register ${mySplit[1].toInt()} is not base-16")
         }
     }
 }

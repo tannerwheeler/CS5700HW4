@@ -21,6 +21,7 @@ class ReadKeyboard(
 
     override fun perform() {
         require(mySplit[0] == 6u) { "First 4 bits of first byte must be 6 in ReadKeyboard Instruction" }
+        println("Get input:")
         val input = readlnOrNull()
         if (checkHex(input)) {
             if (input == null) {

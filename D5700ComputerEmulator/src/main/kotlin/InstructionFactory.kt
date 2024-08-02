@@ -47,6 +47,7 @@ class InstructionFactory(
             "D" -> instructions[13].execute(n1,n2)
             "E" -> instructions[14].execute(n1,n2)
             "F" -> instructions[15].execute(n1,n2)
+            else -> throw IllegalArgumentException("This is not a valid instruction")
         }
     }
 }
