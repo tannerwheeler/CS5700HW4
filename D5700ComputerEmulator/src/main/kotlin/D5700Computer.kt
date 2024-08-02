@@ -23,11 +23,11 @@ class D5700Computer {
             val firstByte = memory[1].read(cpu.program_counter.toInt())
             val secondByte = memory[1].read(cpu.program_counter.toInt()+1)
 
-//            if (firstByte == 0.toUByte() && secondByte == 0.toUByte()) {
-//                this.stop()
-//            } else {
+            if (firstByte == 0.toUByte() && secondByte == 0.toUByte()) {
+                this.stop()
+            } else {
                 this.instructions.executeInstruction(firstByte, secondByte)
-//            }
+            }
         }
 
         this.cpuFuture = executor.scheduleAtFixedRate(
@@ -39,7 +39,7 @@ class D5700Computer {
     }
 
     private fun stop() {
-        //to stop and interupt a future
+        //to stop and interrupt a future
         this.cpuFuture?.cancel(true)
 
         // to wait for all futures to finish

@@ -3,6 +3,7 @@ package instructions
 import CPU
 import Display
 import Memory
+import UByteToHexConverter
 
 class Draw(
     cpu: CPU,
@@ -28,10 +29,8 @@ class Draw(
         if (cpu.registers[mySplit[1].toInt()] > 127u) {
             error("The value in register ${cpu.registers[mySplit[1].toInt()]} is greater than 7F or 127.")
         } else {
-            val value = cpu.registers[mySplit[1].toInt()]
-                .toInt()
-                .digitToChar(16)
-                .toString()
+            println(cpu.registers[mySplit[1].toInt()])
+            val value = Char(cpu.registers[mySplit[1].toInt()].toInt()).toString()
             display.changeDisplay(value,
                 mySplit[2].toInt(), mySplit[3].toInt())
         }

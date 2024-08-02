@@ -23,4 +23,14 @@ class DrawTest {
         display.printToConsole()
         assertEquals("C",display.checkDisplay(2,3))
     }
+
+    @Test
+    fun testDrawBasic2() {
+        display.printToConsole()
+        assertEquals(null,display.checkDisplay(2,3))
+        cpu.registers[0] = 72u
+        draw.execute("F0", "00")
+        display.printToConsole()
+        assertEquals("H",display.checkDisplay(0,0))
+    }
 }
