@@ -1,6 +1,4 @@
-import instructions.Store
 
 fun main() {
-    ROM().loadROM()
-
+    D5700Computer().start()
 }

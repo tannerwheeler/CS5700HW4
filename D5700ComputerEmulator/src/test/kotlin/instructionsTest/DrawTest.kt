@@ -16,11 +16,11 @@ class DrawTest {
 
     @Test
     fun testDrawBasic() {
-        display.print()
+        display.printToConsole()
         assertEquals(null,display.checkDisplay(2,3))
         cpu.registers[1] = 12u
         draw.execute("F1", "23")
-        display.print()
+        display.printToConsole()
         assertEquals("C",display.checkDisplay(2,3))
     }
 }

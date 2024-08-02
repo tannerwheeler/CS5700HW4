@@ -3,13 +3,14 @@ class Display {
 
     fun changeDisplay(value: String, row: Int, column: Int) {
         displayArray[row][column] = value
+        this.printToConsole()
     }
 
     fun checkDisplay(row: Int, column: Int) : String? {
         return displayArray[row][column]
     }
 
-    fun print() {
+    fun printToConsole() {
         println("        ")
         for (row in displayArray) {
             row.forEach {
