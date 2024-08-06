@@ -3,7 +3,7 @@ import java.nio.file.Paths
 
 class ROM : Memory() {
     override fun write(position: Int, value: UByte) {
-        //TODO("Not yet implemented")
+        throw UnsupportedOperationException("ERROR: You cannot write to the ROM at this time.")
     }
 
     override fun loadROM() {

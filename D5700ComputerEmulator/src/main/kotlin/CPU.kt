@@ -31,7 +31,7 @@ class CPU (
         this.cpuRunCommand = executor.scheduleAtFixedRate(
             runCommand,
             0,
-            500L, // repeat frequency - every 2 ms
+            2L,
             TimeUnit.MILLISECONDS
         )
     }

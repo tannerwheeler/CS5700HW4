@@ -21,7 +21,7 @@ class Jump(
     override fun perform() {
         require(mySplit[0] == 5u) { "First 4 bits of the first byte must be 5 in Jump Instruction" }
 
-        if ((mySplit[1].toUShort() % 2.toUShort()).toUShort() != 0.toUShort()) {
+        if ((mySplit[1].toInt() % 2) == 0) {
             cpu.programCounter = mySplit[1].toUShort()
         } else {
             Exit(this.cpu, this.memory, this.display).execute("00","00")
