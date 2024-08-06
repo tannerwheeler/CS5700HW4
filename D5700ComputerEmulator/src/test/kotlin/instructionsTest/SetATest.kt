@@ -10,10 +10,10 @@ import instructions.SetA
 import kotlin.test.assertFailsWith
 
 class SetATest {
-    val cpu = CPU()
     val array = arrayOf(RAM(), ROM())
     val display = Display()
-    val setA = SetA(cpu, array, display)
+    val cpu = CPU(array, display)
+    private val setA = SetA(cpu, array, display)
 
     @Test
     fun testSetA() {

@@ -9,10 +9,10 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
 class ReadTest {
-    val cpu = CPU()
     val array = arrayOf(RAM(), ROM())
     val display = Display()
-    val read = Read(cpu, array, display)
+    val cpu = CPU(array, display)
+    private val read = Read(cpu, array, display)
 
     @Test
     fun testReadBasic() {

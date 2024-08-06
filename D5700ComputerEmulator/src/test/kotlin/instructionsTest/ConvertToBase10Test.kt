@@ -10,10 +10,10 @@ import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
 
 class ConvertToBase10Test {
-    val cpu = CPU()
     val array = arrayOf(RAM(), ROM())
     val display = Display()
-    val convertToBase10 = ConvertToBase10(cpu, array, display)
+    val cpu = CPU(array, display)
+    private val convertToBase10 = ConvertToBase10(cpu, array, display)
 
     @Test
     fun testConvertToBase10() {

@@ -9,10 +9,10 @@ import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
 class ReadKeyboardTest {
-    val cpu = CPU()
     val array = arrayOf(RAM(), ROM())
     val display = Display()
-    val keyboard = ReadKeyboard(cpu, array, display)
+    val cpu = CPU(array, display)
+    private val keyboard = ReadKeyboard(cpu, array, display)
 
     @Test
     fun testSplit() {

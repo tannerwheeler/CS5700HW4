@@ -10,11 +10,11 @@ import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
 class JumpTest {
-    val cpu = CPU()
     val array = arrayOf(RAM(), ROM())
     val display = Display()
-    val jump = Jump(cpu, array, display)
-    val add = Add(cpu, array, display)
+    val cpu = CPU(array, display)
+    private val jump = Jump(cpu, array, display)
+    private val add = Add(cpu, array, display)
 
     @Test
     fun jumpTestBasic() {

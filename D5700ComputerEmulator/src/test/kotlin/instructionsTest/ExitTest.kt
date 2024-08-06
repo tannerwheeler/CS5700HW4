@@ -1,0 +1,4 @@
+package instructionsTest
+
+class ExitTest {
+}

@@ -10,10 +10,10 @@ import instructions.SkipEqual
 import kotlin.test.assertFailsWith
 
 class SkipEqualTest {
-    val cpu = CPU()
     val array = arrayOf(RAM(), ROM())
     val display = Display()
-    val skipEqual = SkipEqual(cpu, array, display)
+    val cpu = CPU(array, display)
+    private val skipEqual = SkipEqual(cpu, array, display)
 
     @Test
     fun testSkipEqual() {

@@ -10,10 +10,10 @@ import org.junit.jupiter.api.Test
 import kotlin.test.assertFailsWith
 
 class ReadTTest {
-    val cpu = CPU()
     val array = arrayOf(RAM(), ROM())
     val display = Display()
-    val readT = ReadT(cpu, array, display)
+    val cpu = CPU(array, display)
+    private val readT = ReadT(cpu, array, display)
 
     @Test
     fun testReadT() {

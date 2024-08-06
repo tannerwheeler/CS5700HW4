@@ -10,9 +10,9 @@ import org.junit.jupiter.api.Test
 import kotlin.test.assertFailsWith
 
 class SwitchMemoryTest {
-    val cpu = CPU()
     val array = arrayOf(RAM(), ROM())
     val display = Display()
+    val cpu = CPU(array, display)
     val switchMemory = SwitchMemory(cpu, array, display)
 
     @Test

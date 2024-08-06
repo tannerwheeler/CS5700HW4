@@ -10,23 +10,23 @@ import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
 
 class ConvertByteToASCIITest {
-    val cpu = CPU()
     val array = arrayOf(RAM(), ROM())
     val display = Display()
-    val convertByteToASCII = ConvertByteToASCII(cpu, array, display)
+    val cpu = CPU(array, display)
+    private val convertByteToASCII = ConvertByteToASCII(cpu, array, display)
 
     @Test
     fun testConvertByteToASCII() {
-        cpu.registers[0] = 12u
+        cpu.registers[0] = 7u
         convertByteToASCII.execute("E0","10")
-        assertEquals(12u,cpu.registers[1])
+        assertEquals(55u,cpu.registers[1])
     }
 
     @Test
     fun testBadConvertByteToASCII() {
         cpu.registers[0] = 17u
         val block: () -> Unit = { convertByteToASCII.execute("E0", "10") }
-        assertFailsWith<IllegalStateException> { block() }
+        assertFailsWith<IllegalArgumentException> { block() }
     }
 
     @Test

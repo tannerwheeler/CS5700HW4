@@ -7,12 +7,13 @@ import ROM
 import instructions.Write
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
+import kotlin.test.assertFailsWith
 
 class WriteTest {
-    val cpu = CPU()
     val array = arrayOf(RAM(), ROM())
     val display = Display()
-    val write = Write(cpu, array, display)
+    val cpu = CPU(array, display)
+    private val write = Write(cpu, array, display)
 
     @Test
     fun testWriteRAM() {
@@ -28,7 +29,7 @@ class WriteTest {
         cpu.address = 30u
         cpu.memory = 1u
         cpu.registers[7] = 10u
-        write.execute("47", "00")
-        assertEquals(0.toUByte(), array[cpu.memory.toInt()].read(cpu.address.toInt()))
+        val block: () -> Unit = { write.execute("47", "00") }
+        assertFailsWith<UnsupportedOperationException> { block() }
     }
 }
