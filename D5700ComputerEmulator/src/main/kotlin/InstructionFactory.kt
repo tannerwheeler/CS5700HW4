@@ -22,13 +22,21 @@ class InstructionFactory(
         ConvertToBase10(this.cpu, this.memory, this.display),
         ConvertByteToASCII(this.cpu, this.memory, this.display),
         Draw(this.cpu, this.memory, this.display),
+        Exit(this.cpu, this.memory, this.display),
     )
 
     fun executeInstruction(b1: UByte, b2: UByte) {
+        var instructionValue: String = ""
+
         val n1 = UByteToHexConverter().convert(b1)
         val n2 = UByteToHexConverter().convert(b2)
 
-        val instructionValue = n1.chunked(1)[0]
+        if (b1 == b2 && b1 == 0.toUByte())
+        {
+            instructionValue = "X"
+        } else {
+            instructionValue = n1.chunked(1)[0]
+        }
 
         when(instructionValue) {
             "0" -> instructions[0].execute(n1,n2)
@@ -47,6 +55,7 @@ class InstructionFactory(
             "D" -> instructions[13].execute(n1,n2)
             "E" -> instructions[14].execute(n1,n2)
             "F" -> instructions[15].execute(n1,n2)
+            "X" -> instructions[16].execute(n1,n2)
             else -> throw IllegalArgumentException("This is not a valid instruction")
         }
     }
