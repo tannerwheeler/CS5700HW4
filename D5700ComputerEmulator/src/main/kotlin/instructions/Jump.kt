@@ -20,7 +20,13 @@ class Jump(
 
     override fun perform() {
         require(mySplit[0] == 5u) { "First 4 bits of the first byte must be 5 in Jump Instruction" }
-        cpu.program_counter = mySplit[1].toUShort()
+
+        if ((mySplit[1].toUShort() % 2.toUShort()).toUShort() != 0.toUShort()) {
+            cpu.programCounter = mySplit[1].toUShort()
+        } else {
+            Exit(this.cpu, this.memory, this.display).execute("00","00")
+            throw IllegalArgumentException("The value in register ${cpu.registers[mySplit[1].toInt()]} is greater than 7F or 127.")
+        }
     }
 
     override fun incrementCheck() : Boolean {

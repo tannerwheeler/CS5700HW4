@@ -1,7 +1,3 @@
-import instructions.*
-import java.util.concurrent.Executors
-import java.util.concurrent.ScheduledFuture
-import java.util.concurrent.TimeUnit
 
 class D5700Computer {
     private var memory = arrayOf(RAM(), ROM())
@@ -12,6 +8,4 @@ class D5700Computer {
         this.memory[1].loadROM()
         this.cpu.startEmulation()
     }
-
-
 }

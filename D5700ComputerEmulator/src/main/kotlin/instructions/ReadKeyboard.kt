@@ -3,7 +3,7 @@ package instructions
 import CPU
 import Display
 import Memory
-import java.util.*
+import java.lang.IllegalArgumentException
 
 class ReadKeyboard(
     cpu: CPU,
@@ -30,6 +30,9 @@ class ReadKeyboard(
                 val chunkedInput = input.chunked(2)
                 cpu.registers[mySplit[1].toInt()] = chunkedInput[0].toUByte(16)
             }
+        } else {
+            Exit(this.cpu, this.memory, this.display).execute("00","00")
+            throw IllegalArgumentException("The value in register ${cpu.registers[mySplit[1].toInt()]} is greater than 7F or 127.")
         }
         return
     }

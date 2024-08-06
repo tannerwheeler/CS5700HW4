@@ -27,7 +27,8 @@ class ConvertByteToASCII(
         if (wantedValue in 0u..127u) {
             cpu.registers[mySplit[2].toInt()] = wantedValue
         } else {
-            throw error("The value stored in register ${mySplit[1].toInt()} is not base-16")
+            Exit(this.cpu, this.memory, this.display).execute("00","00")
+            throw IllegalArgumentException("The value stored in register ${mySplit[1].toInt()} is not base-16")
         }
     }
 }

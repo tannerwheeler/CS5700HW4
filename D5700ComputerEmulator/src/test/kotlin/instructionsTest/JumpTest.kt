@@ -18,10 +18,10 @@ class JumpTest {
 
     @Test
     fun jumpTestBasic() {
-        assertEquals(0u, cpu.program_counter)
+        assertEquals(0u, cpu.programCounter)
         add.execute("10","10")
-        assertEquals(2u, cpu.program_counter)
+        assertEquals(2u, cpu.programCounter)
         jump.execute("51","f2")
-        assertEquals(498u, cpu.program_counter)
+        assertEquals(498u, cpu.programCounter)
     }
 }

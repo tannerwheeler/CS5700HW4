@@ -17,14 +17,14 @@ class SkipEqualTest {
 
     @Test
     fun testSkipEqual() {
-        assertEquals(0u, cpu.program_counter)
+        assertEquals(0u, cpu.programCounter)
         cpu.registers[1] = 10u
         cpu.registers[2] = 20u
         skipEqual.execute("81", "20")
-        assertEquals(2u, cpu.program_counter)
+        assertEquals(2u, cpu.programCounter)
         cpu.registers[1] = 20u
         skipEqual.execute("81", "20")
-        assertEquals(6u, cpu.program_counter)
+        assertEquals(6u, cpu.programCounter)
     }
 
     @Test

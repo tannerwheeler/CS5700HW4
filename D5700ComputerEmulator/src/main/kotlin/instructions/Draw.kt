@@ -3,7 +3,6 @@ package instructions
 import CPU
 import Display
 import Memory
-import UByteToHexConverter
 
 class Draw(
     cpu: CPU,
@@ -27,7 +26,8 @@ class Draw(
             "Location for Draw is not on the screen. Screen size = 8x8." }
 
         if (cpu.registers[mySplit[1].toInt()] > 127u) {
-            error("The value in register ${cpu.registers[mySplit[1].toInt()]} is greater than 7F or 127.")
+            Exit(this.cpu, this.memory, this.display).execute("00","00")
+            throw IllegalArgumentException("The value in register ${cpu.registers[mySplit[1].toInt()]} is greater than 7F or 127.")
         } else {
             val value = Char(cpu.registers[mySplit[1].toInt()].toInt()).toString()
             display.changeDisplay(value,

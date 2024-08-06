@@ -1,3 +1,4 @@
+import instructions.Exit
 import java.util.concurrent.Executors
 import java.util.concurrent.ScheduledFuture
 import java.util.concurrent.TimeUnit
@@ -7,7 +8,7 @@ class CPU (
     private val display: Display,
 ){
     val registers = Array<UByte>(8) { 0u }
-    var program_counter : UShort = 0u
+    var programCounter : UShort = 0u
     var timer : UByte = 0u
     var address : UShort = 0u
     var memory : UInt = 0u
@@ -38,11 +39,11 @@ class CPU (
     fun startEmulation() {
         this.executor = Executors.newSingleThreadScheduledExecutor()
         val runCommand = Runnable {
-            val firstByte = this.memoryArray[1].read(this.program_counter.toInt())
-            val secondByte = this.memoryArray[1].read(this.program_counter.toInt()+1)
+            val firstByte = this.memoryArray[1].read(this.programCounter.toInt())
+            val secondByte = this.memoryArray[1].read(this.programCounter.toInt()+1)
 
             if (firstByte == 0.toUByte() && secondByte == 0.toUByte()) {
-                this.stopEmulation()
+                Exit(this, this.memoryArray, this.display).execute("00","00")
             } else {
                 this.instructions.executeInstruction(firstByte, secondByte)
             }

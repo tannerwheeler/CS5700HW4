@@ -26,16 +26,15 @@ class InstructionFactory(
     )
 
     fun executeInstruction(b1: UByte, b2: UByte) {
-        var instructionValue: String = ""
+        val instructionValue: String
 
         val n1 = UByteToHexConverter().convert(b1)
         val n2 = UByteToHexConverter().convert(b2)
 
-        if (b1 == b2 && b1 == 0.toUByte())
-        {
-            instructionValue = "X"
+        instructionValue = if (b1 == b2 && b1 == 0.toUByte()) {
+            "X"
         } else {
-            instructionValue = n1.chunked(1)[0]
+            n1.chunked(1)[0]
         }
 
         when(instructionValue) {

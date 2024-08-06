@@ -14,20 +14,8 @@ abstract class Instruction (
     protected var byte2 : UByte = 0u
     protected var mySplit : MutableList<UInt> = mutableListOf()
 
-    fun checkHex(string: String?): Boolean {
-        if (string == null) {
-            return true
-        }
-
-        val uppercaseString = string.uppercase(Locale.getDefault())
-        uppercaseString.forEach {
-            if ((it < '0' || it > '9')
-                && (it < 'A' || it > 'F')) {
-                return false
-            }
-        }
-        return true
-    }
+    protected abstract fun split()
+    protected abstract fun perform()
 
     fun execute(byte1: String, byte2: String) {
         require(checkHex(byte1)) { "Error in Execute: Byte 1 must be a hex string." }
@@ -45,11 +33,11 @@ abstract class Instruction (
         mySplit.clear()
     }
 
-    protected abstract fun split()
-    protected abstract fun perform()
+
     protected fun increment() {
-        cpu.program_counter = (cpu.program_counter + 2u).toUShort()
+        cpu.programCounter = (cpu.programCounter + 2u).toUShort()
     }
+
 
     protected fun splitByte(byte: UByte) : Pair<UInt,UInt> {
         var first : UInt = byte.toUInt()
@@ -59,7 +47,24 @@ abstract class Instruction (
         return Pair(first, second)
     }
 
+
     open fun incrementCheck() : Boolean {
+        return true
+    }
+
+
+    fun checkHex(string: String?): Boolean {
+        if (string == null) {
+            return true
+        }
+
+        val uppercaseString = string.uppercase(Locale.getDefault())
+        uppercaseString.forEach {
+            if ((it < '0' || it > '9')
+                && (it < 'A' || it > 'F')) {
+                return false
+            }
+        }
         return true
     }
 }
