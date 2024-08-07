@@ -38,4 +38,16 @@ class SkipNotEqualTest {
         val block: () -> Unit = { skipNotEqual.execute("70", "10") }
         assertFailsWith<IllegalArgumentException> { block() }
     }
+
+    @Test
+    fun testBadSkipEqual3Test() {
+        val block: () -> Unit = { skipNotEqual.execute("9F", "10") }
+        assertFailsWith<IllegalArgumentException> { block() }
+    }
+
+    @Test
+    fun testBadSkipEqual4Test() {
+        val block: () -> Unit = { skipNotEqual.execute("91", "D0") }
+        assertFailsWith<IllegalArgumentException> { block() }
+    }
 }

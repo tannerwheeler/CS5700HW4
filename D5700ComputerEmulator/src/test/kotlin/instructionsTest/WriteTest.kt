@@ -32,4 +32,15 @@ class WriteTest {
         val block: () -> Unit = { write.execute("47", "00") }
         assertFailsWith<UnsupportedOperationException> { block() }
     }
+
+    @Test
+    fun testWriteBadCall() {
+        cpu.address = 30u
+        cpu.memory = 0u
+        cpu.registers[7] = 10u
+        val block: () -> Unit = { write.execute("4A", "00") }
+        assertFailsWith<IllegalArgumentException> { block() }
+    }
+
+
 }

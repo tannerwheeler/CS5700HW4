@@ -34,4 +34,10 @@ class ReadTTest {
         val block: () -> Unit = { readT.execute("C0", "10") }
         assertFailsWith<IllegalArgumentException> { block() }
     }
+
+    @Test
+    fun testBadReadT3Test() {
+        val block: () -> Unit = { readT.execute("CB", "00") }
+        assertFailsWith<IllegalArgumentException> { block() }
+    }
 }

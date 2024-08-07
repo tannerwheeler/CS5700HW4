@@ -8,6 +8,7 @@ import instructions.Draw
 import org.junit.jupiter.api.Assertions.assertNotEquals
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFailsWith
 
 class DrawTest {
     val array = arrayOf(RAM(), ROM())
@@ -43,5 +44,11 @@ class DrawTest {
         draw.execute("F0", "00")
         display.printToConsole()
         assertNotEquals("7",display.checkDisplay(0,0))
+    }
+
+    @Test
+    fun testBadConvertToBase10Test3() {
+        val block: () -> Unit = { draw.execute("F9", "23") }
+        assertFailsWith<IllegalArgumentException> { block() }
     }
 }

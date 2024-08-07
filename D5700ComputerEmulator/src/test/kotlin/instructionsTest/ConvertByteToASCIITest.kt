@@ -42,4 +42,18 @@ class ConvertByteToASCIITest {
         val block: () -> Unit = { convertByteToASCII.execute("E0", "11") }
         assertFailsWith<IllegalArgumentException> { block() }
     }
+
+    @Test
+    fun testBadConvertByteToASCII4() {
+        cpu.registers[0] = 12u
+        val block: () -> Unit = { convertByteToASCII.execute("E9", "10") }
+        assertFailsWith<IllegalArgumentException> { block() }
+    }
+
+    @Test
+    fun testBadConvertByteToASCII5() {
+        cpu.registers[0] = 12u
+        val block: () -> Unit = { convertByteToASCII.execute("E0", "90") }
+        assertFailsWith<IllegalArgumentException> { block() }
+    }
 }

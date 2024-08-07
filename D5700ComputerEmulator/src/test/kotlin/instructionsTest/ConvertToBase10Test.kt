@@ -41,4 +41,10 @@ class ConvertToBase10Test {
         val block: () -> Unit = { convertToBase10.execute("D0", "02") }
         assertFailsWith<IllegalArgumentException> { block() }
     }
+
+    @Test
+    fun testBadConvertToBase10Test4() {
+        val block: () -> Unit = { convertToBase10.execute("D9", "00") }
+        assertFailsWith<IllegalArgumentException> { block() }
+    }
 }

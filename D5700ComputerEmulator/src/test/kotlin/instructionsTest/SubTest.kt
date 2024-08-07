@@ -46,12 +46,31 @@ class SubTest {
 
     @Test
     fun testBadRegisterNumber0() {
-        //TODO: Finish writing errors
         cpu.registers[0] = 2u
         cpu.registers[1] = 3u
         assertEquals(2u, cpu.registers[0])
         val sub = Sub(cpu, array, display)
         val block: () -> Unit = { sub.execute("29", "10") }
-        assertFailsWith<ArrayIndexOutOfBoundsException> { block() }
+        assertFailsWith<IllegalArgumentException> { block() }
+    }
+
+    @Test
+    fun testBadRegisterNumber1() {
+        cpu.registers[0] = 2u
+        cpu.registers[1] = 3u
+        assertEquals(2u, cpu.registers[0])
+        val sub = Sub(cpu, array, display)
+        val block: () -> Unit = { sub.execute("20", "90") }
+        assertFailsWith<IllegalArgumentException> { block() }
+    }
+
+    @Test
+    fun testBadRegisterNumber2() {
+        cpu.registers[0] = 2u
+        cpu.registers[1] = 3u
+        assertEquals(2u, cpu.registers[0])
+        val sub = Sub(cpu, array, display)
+        val block: () -> Unit = { sub.execute("20", "19") }
+        assertFailsWith<IllegalArgumentException> { block() }
     }
 }

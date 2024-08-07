@@ -68,7 +68,7 @@ abstract class Instruction (
         return true
     }
 
-    protected fun checkRegister(string: String?): Boolean {
-        return string.toString() in "01234567"
+    protected fun checkRegister(string: String): Boolean {
+        return (string.toUInt() in 0u..7u)
     }
 }

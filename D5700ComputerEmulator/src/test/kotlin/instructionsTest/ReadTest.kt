@@ -7,6 +7,7 @@ import ROM
 import instructions.Read
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
+import kotlin.test.assertFailsWith
 
 class ReadTest {
     val array = arrayOf(RAM(), ROM())
@@ -30,5 +31,11 @@ class ReadTest {
         array[0].write(cpu.address.toInt(), 10u)
         read.execute("37", "00")
         assertEquals(0.toUByte(), cpu.registers[7])
+    }
+
+    @Test
+    fun testBadConvertToBase10Test3() {
+        val block: () -> Unit = { read.execute("38", "00") }
+        assertFailsWith<IllegalArgumentException> { block() }
     }
 }

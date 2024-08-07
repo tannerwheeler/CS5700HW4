@@ -47,4 +47,10 @@ class ReadKeyboardTest {
         val block: () -> Unit = { keyboard.execute("67", "A0") }
         assertFailsWith<IllegalArgumentException> { block() }
     }
+
+    @Test
+    fun testBadKeyboardInput4() {
+        val block: () -> Unit = { keyboard.execute("6A", "00") }
+        assertFailsWith<IllegalArgumentException> { block() }
+    }
 }
