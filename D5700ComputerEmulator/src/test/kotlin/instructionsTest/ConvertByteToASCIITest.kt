@@ -19,7 +19,7 @@ class ConvertByteToASCIITest {
     fun testConvertByteToASCII() {
         cpu.registers[0] = 12u
         convertByteToASCII.execute("E0","10")
-        assertEquals(55u,cpu.registers[1])
+        assertEquals(67u,cpu.registers[1])
     }
 
     @Test
