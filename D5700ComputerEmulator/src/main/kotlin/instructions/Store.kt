@@ -14,6 +14,8 @@ class Store(
         mySplit.add(tempHolder.first)
         mySplit.add(tempHolder.second)
         mySplit.add(byte2.toUInt())
+
+        require(checkRegister(tempHolder.second.toString())) {"Invalid register: ${tempHolder.second}"}
     }
 
     override fun perform() {

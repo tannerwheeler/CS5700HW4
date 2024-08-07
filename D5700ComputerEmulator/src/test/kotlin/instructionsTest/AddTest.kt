@@ -53,4 +53,44 @@ class AddTest {
         val block: () -> Unit = { add.execute("XF0", "10") }
         assertFailsWith<IllegalArgumentException> { block() }
     }
+
+    @Test
+    fun testBadAddition2() {
+        cpu.registers[0] = 2u
+        cpu.registers[1] = 3u
+        assertEquals(2u, cpu.registers[0])
+        val add = Add(cpu, array, display)
+        val block: () -> Unit = { add.execute("20", "10") }
+        assertFailsWith<IllegalArgumentException> { block() }
+    }
+
+    @Test
+    fun testBRegister() {
+        cpu.registers[0] = 2u
+        cpu.registers[1] = 3u
+        assertEquals(2u, cpu.registers[0])
+        val add = Add(cpu, array, display)
+        val block: () -> Unit = { add.execute("1A", "10") }
+        assertFailsWith<IllegalArgumentException> { block() }
+    }
+
+    @Test
+    fun testBRegister2() {
+        cpu.registers[0] = 2u
+        cpu.registers[1] = 3u
+        assertEquals(2u, cpu.registers[0])
+        val add = Add(cpu, array, display)
+        val block: () -> Unit = { add.execute("10", "A0") }
+        assertFailsWith<IllegalArgumentException> { block() }
+    }
+
+    @Test
+    fun testBRegister3() {
+        cpu.registers[0] = 2u
+        cpu.registers[1] = 3u
+        assertEquals(2u, cpu.registers[0])
+        val add = Add(cpu, array, display)
+        val block: () -> Unit = { add.execute("10", "1A") }
+        assertFailsWith<IllegalArgumentException> { block() }
+    }
 }

@@ -13,6 +13,9 @@ class Exit(
     }
 
     override fun perform() {
+        require(this.byte1 == 0.toUByte() && this.byte2 == 0.toUByte()) {
+            "Exit instruction execute method can only be called with '00' and '00'."
+        }
         this.cpu.stopEmulation()
     }
 

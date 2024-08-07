@@ -18,6 +18,9 @@ class ConvertByteToASCII(
         val tempHolder2 = splitByte(byte2)
         mySplit.add(tempHolder2.first)
         require(tempHolder2.second == 0u) { "The last 4 bits must be 0 in ConvertByteToASCII Instruction." }
+
+        require(checkRegister(tempHolder1.second.toString())) {"Invalid register: ${tempHolder1.second}"}
+        require(checkRegister(tempHolder2.first.toString())) {"Invalid register: ${tempHolder2.first}"}
     }
 
     override fun perform() {

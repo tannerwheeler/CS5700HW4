@@ -25,7 +25,7 @@ class Jump(
             cpu.programCounter = mySplit[1].toUShort()
         } else {
             Exit(this.cpu, this.memory, this.display).execute("00","00")
-            throw IllegalArgumentException("The value in register ${cpu.registers[mySplit[1].toInt()]} is greater than 7F or 127.")
+            throw IllegalArgumentException("The is not divisible by 2.")
         }
     }
 

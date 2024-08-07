@@ -7,6 +7,7 @@ import ROM
 import instructions.ReadKeyboard
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFailsWith
 
 class ReadKeyboardTest {
     val array = arrayOf(RAM(), ROM())
@@ -29,5 +30,21 @@ class ReadKeyboardTest {
         keyboard.execute("62", "00")
     }
 
-    //TODO: Add failed tests
+    @Test
+    fun testBadKeyboardInput() {
+        val block: () -> Unit = { keyboard.execute("A", "10") }
+        assertFailsWith<IllegalArgumentException> { block() }
+    }
+
+    @Test
+    fun testBadKeyboardInput2() {
+        val block: () -> Unit = { keyboard.execute("61", "1") }
+        assertFailsWith<IllegalArgumentException> { block() }
+    }
+
+    @Test
+    fun testBadKeyboardInput3() {
+        val block: () -> Unit = { keyboard.execute("67", "A0") }
+        assertFailsWith<IllegalArgumentException> { block() }
+    }
 }

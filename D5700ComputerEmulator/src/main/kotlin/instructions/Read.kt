@@ -15,6 +15,8 @@ class Read(
         mySplit.add(tempHolder1.second)
 
         require(byte2 == 0.toUByte()) { "Second Byte is not 00 in Read Instruction" }
+
+        require(checkRegister(tempHolder1.second.toString())) {"Invalid register: ${tempHolder1.second}"}
     }
 
     override fun perform() {

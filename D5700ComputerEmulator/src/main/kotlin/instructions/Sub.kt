@@ -17,6 +17,10 @@ class Sub(
         val tempHolder2 = splitByte(byte2)
         mySplit.add(tempHolder2.first)
         mySplit.add(tempHolder2.second)
+
+        require(checkRegister(tempHolder1.second.toString())) {"Invalid register: ${tempHolder1.second}"}
+        require(checkRegister(tempHolder2.first.toString())) {"Invalid register: ${tempHolder2.first}"}
+        require(checkRegister(tempHolder2.second.toString())) {"Invalid register: ${tempHolder2.second}"}
     }
 
     override fun perform() {
